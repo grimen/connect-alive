@@ -4,7 +4,8 @@ var connect = require('connect'),
     http = require('http');
 
 var connect_app = function() {
-  return connect(function(req, res) { res.end(''); });
+  var app = function(req, res) { res.end(''); };
+  return connect(app);
 }
 
 module.exports = {
@@ -14,53 +15,43 @@ module.exports = {
   },
 
   "Minimal setup: No custom conditions": function() {
-    var app = connect_app();
-
-    app.use(alive());
+    var app = connect(alive());
 
     assert.response(app, {url: '/alive?'}, {status: 200});
   },
 
   'Advanced setup: Using custom alive? conditions: returning false': function() {
-    var app = connect_app();
-
     var check = function() {
       return false;
     };
-    app.use(alive(check));
+    var app = connect(alive(check));
 
     assert.response(app, {url: '/alive?'}, {status: 500});
   },
 
   'Advanced setup: Using custom alive? conditions: returning undefined': function() {
-    var app = connect_app();
-
     var check = function() {
       // return undefined;
     };
-    app.use(alive(check));
+    var app = connect(alive(check));
 
     assert.response(app, {url: '/alive?'}, {status: 500});
   },
 
   'Advanced setup: Using custom alive? conditions: raising exception': function() {
-    var app = connect_app();
-
     var check = function() {
       throw("SHIT - WHERE ARE ALL THE HORSES???!!! *drama-queen scream*");
     };
-    app.use(alive(check));
+    var app = connect(alive(check));
 
     assert.response(app, {url: '/alive?'}, {status: 500});
   },
 
   'Advanced setup: Using custom alive? conditions: returning true': function() {
-    var app = connect_app();
-
     var check = function() {
       return true;
     };
-    app.use(alive(check));
+    var app = connect(alive(check));
 
     assert.response(app, {url: '/alive?'}, {status: 200});
   }
