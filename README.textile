@@ -1,0 +1,47 @@
+h1. CONNECT-ALIVE "!https://secure.travis-ci.org/merchii/connect-alive.png!":http://travis-ci.org/merchii/connect-alive
+
+_Connect middleware for checking if app is alive or not - optionally via custom condition(s)._
+
+h2. Installation (not yet)
+
+<pre>
+  $ npm install connect-alive
+</pre>
+
+h2. Usage
+
+*Minimal:*
+
+<pre>
+  connect.createServer(
+    connect.alive()
+  );
+</pre>
+
+*Advanced:*
+
+<pre>
+  connect.createServer(
+    connect.alive(function() {
+      // Check that you got all horses/unicorns in the stable...or something.
+      var got_all_horses = parseInt(process.env.HORSES_IN_THE_STABLE) == 5;
+
+      return got_all_horses;
+    })
+  );
+</pre>
+
+h2. Test
+
+<pre>
+  GET /alive?
+</pre>
+
+h2. Notes
+
+This gem was developed for our own requirements at *"Merchii":http://github.com/merchii*, so feel free to send pull-requests with enhancements of any kind (features, bug-fixes, documentation, tests, etc.) to make it better or useful for you as well.
+
+h2. License
+
+Released under the MIT license.
+Copyright (c) "Jonas Grimfelt":http://github.com/grimen, "Merchii":http://github.com/merchii
