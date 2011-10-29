@@ -2,7 +2,7 @@ h1. CONNECT-ALIVE "!https://secure.travis-ci.org/merchii/connect-alive.png!":htt
 
 _Connect middleware for checking if app is alive or not - optionally via custom condition(s)._
 
-h2. Installation (not yet)
+h2. Installation
 
 <pre>
   $ npm install connect-alive
@@ -14,7 +14,7 @@ h2. Usage
 
 <pre>
   connect.createServer(
-    connect.alive()
+    alive()
   );
 </pre>
 
@@ -22,7 +22,7 @@ h2. Usage
 
 <pre>
   connect.createServer(
-    connect.alive(function() {
+    alive(function() {
       // Check that you got all horses/unicorns in the stable...or something.
       var got_all_horses = parseInt(process.env.HORSES_IN_THE_STABLE) == 5;
 
