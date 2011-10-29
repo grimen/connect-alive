@@ -1,0 +1,32 @@
+{
+  "name" : "connect-alive",
+  "description" : "Connect (Node.js) middlware for checking if app is alive or not - optionally via custom condition(s).",
+  "keywords": ["connect", "alive", "monitoring", "status"],
+  "homepage": "https://github.com/merchii/connect-alive",
+  "author": [
+    "Jonas Grimfelt <grimen@gmail.com> (https://github.com/grimen)",
+    "Merchii <operations@merchii.com> (https://github.com/merchii)"
+  ],
+  "version": "0.0.1",
+  "repository": {
+      "type": "git",
+      "url": "http://github.com/merchii/connect-alive.git"
+  },
+  "licenses": [{"type": "MIT"}],
+  "main": "lib/connect-alive.js",
+  "dependencies": {
+      "connect": ">= 1.0.0"
+  },
+  "devDependencies": {
+      "expresso": "0.9.2"
+  },
+  "directories": {
+      "lib": "./lib"
+  },
+  "engines": {
+      "node": ">= 0.4.0"
+  },
+  "scripts": {
+      "test": "./node_modules/.bin/expresso test/**/*"
+  }
+}
